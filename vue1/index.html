@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Vue.Js -->
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+      <div class="container">
+          <div id="app">
+            <h1>Books</h1>
+            <ul>
+                <li>{{title}}</li>
+                <li>{{author}}</li>
+                <li>{{date}}</li>
+                <li>{{price}} $</li>
+            </ul>
+            <button v-on:click="price++" class="btn btn-outline-primary m-1">Increase Price</button>
+            <button @click="price--" class="btn btn-outline-primary m-1">Decrease Price</button>
+            <!-- <button @click="title='fucking book is here'" class="btn btn-outline-primary m-1">Change title</button> -->
+            <button @click="doo('Fuck Again man')" class="btn btn-outline-primary m-1">Change title</button>
+            <hr>
+
+            <button @click="enable" class="btn btn-outline-primary m-1">{{mode}}able</button>
+            <div v-if="enabled">
+                <h1>Fuck Man What's Up :Mode Enabled</h1>
+            </div>
+            <div v-else="enabled">
+                <h1>Fuck Man What's Up :Mode Disabled</h1>
+            </div>
+            <hr>
+
+            <div v-show="enabled">
+                <h1>THe V-Show Way of doing things</h1>
+            </div>
+
+            <hr>
+            <div class="row">    
+                <div class="box m-2" @mouseover="handle($event, 5)">mouseover (enter)</div>
+                <div class="box m-2" @mouseleave="handle">mouseleave</div>
+                <div class="box m-2" @dblclick="handle">double click</div>
+                <div class="box m-2" @mousemove="movehandler">Position X: {{x}} - Y:{{y}}</div>
+            </div>
+            <hr>
+
+            <div>
+                <h1>Books Again from the array</h1>
+                <!-- <ul>
+                    <li>{{books[0].title}}</li>
+                    <li>{{books[0].author}}</li>
+                </ul>
+                <ul>
+                    <li>{{books[1].title}}</li>
+                    <li>{{books[1].author}}</li>
+                </ul>
+                <ul>
+                    <li>{{books[2].title}}</li>
+                    <li>{{books[2].author}}</li>
+                </ul> -->
+                <!-- The better way -->
+                <div v-for="book in books">
+                    <small>**********************************************************</small>
+                    <ul>
+                        <li>{{book.title}}</li>
+                        <li>{{book.author}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <div>
+                <h2>Data binding</h2>
+                <!-- <a v-bind:href="url">Click to watch</a> -->
+                <!-- Short Cut -->
+                <a :href="url">Click to watch</a>
+            </div>
+
+            <hr>
+
+            <div>
+                <h2>All the places array</h2>
+                <div v-for="place in places">
+                    <div class="border rounded bg-dark text-white p-3" @click="place.fav=!place.fav">
+                        <h1 :class="{favorite: place.fav}">5 *</h1>
+                        <h3>{{place.place}}</h3>
+                        <img class="img-v-bind" :src="place.img" :alt="place.place" >
+                    </div>
+                    <small> ************************************* </small>
+                </div>
+            </div>
+
+            <hr>
+            <div>
+                <h2>All the Filtered places array</h2>
+                <div v-for="place in filteredPlaces">
+                    <div class="border rounded bg-dark text-white p-3">
+                        <h1 :class="{favorite: place.fav}">5 *</h1>
+                        <h3>{{place.place}}</h3>
+                        <img class="img-v-bind" :src="place.img" :alt="place.place" >
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

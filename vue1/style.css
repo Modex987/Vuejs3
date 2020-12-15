@@ -1,0 +1,18 @@
+.box{
+    height: 100;
+    width: 100px;
+    background-color: blue;
+    color: red;
+}
+
+#app{
+    margin-bottom: 100rem;
+}
+
+.img-v-bind{
+    height: 100px;
+}
+.favorite{
+    background-color: green;
+    color: red;
+}
